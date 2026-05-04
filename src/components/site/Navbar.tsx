@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Menu, X, MessageCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
+import logo from "@/assets/logo.webp";
 
 const links = [
   { href: "#about", label: "About" },
@@ -33,8 +34,11 @@ export default function Navbar() {
       )}
     >
       <nav className="container flex items-center justify-between h-20">
-        <a href="#top" className="font-serif text-lg md:text-xl text-gold tracking-tight">
-          Dr. Jayesh Sharma <span className="text-white/70 font-sans text-sm font-light">· Cancer Care</span>
+        <a href="#top" className="flex items-center gap-3 group">
+          <img src={logo} alt="Dr. Jayesh Sharma logo" className="w-10 h-10 md:w-11 md:h-11 rounded-full object-cover ring-1 ring-purple-bright/40 shadow-[0_4px_20px_-6px_hsl(var(--purple)/0.6)]" />
+          <span className="font-serif text-lg md:text-xl text-gold tracking-tight">
+            Dr. Jayesh Sharma <span className="text-white/70 font-sans text-sm font-light">· Cancer Care</span>
+          </span>
         </a>
 
         <div className="hidden lg:flex items-center gap-8">

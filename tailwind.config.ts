@@ -22,6 +22,10 @@ export default {
           DEFAULT: "hsl(var(--gold))",
           bright: "hsl(var(--gold-bright))",
         },
+        purple: {
+          DEFAULT: "hsl(var(--purple))",
+          bright: "hsl(var(--purple-bright))",
+        },
         ink: {
           DEFAULT: "hsl(var(--ink))",
           2: "hsl(var(--ink-2))",
