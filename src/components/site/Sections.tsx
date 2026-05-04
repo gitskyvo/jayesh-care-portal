@@ -1,6 +1,7 @@
 import { MessageCircle, Calendar, Users, Award, Shield, MapPin, Heart, Star, Quote, ArrowRight, Stethoscope, Sparkles, Microscope, GraduationCap, Activity, Pill, HeartPulse, ScanLine, PlayCircle, FileText } from "lucide-react";
 import drHero from "@/assets/dr-hero.jpg";
 import drAbout from "@/assets/dr-about.jpg";
+import logo from "@/assets/logo.webp";
 import Reveal from "./Reveal";
 import { WHATSAPP_URL } from "./Navbar";
 
@@ -12,6 +13,7 @@ export function Hero() {
     <section id="top" className="relative ink-bg text-white pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden">
       <div className="absolute inset-0 lotus-bg pointer-events-none" />
       <div className="absolute inset-0" style={{ background: "var(--gradient-radial-gold)" }} />
+      <div className="absolute inset-0 pointer-events-none" style={{ background: "var(--gradient-radial-purple)" }} />
       <div className="container relative grid lg:grid-cols-5 gap-12 lg:gap-16 items-center">
         <div className="lg:col-span-3 fade-up">
           <span className="section-label">Cancer Surgeon · Raipur, Chhattisgarh</span>
@@ -50,12 +52,12 @@ export function Hero() {
         </div>
 
         <div className="lg:col-span-2 relative fade-up" style={{ animationDelay: "150ms" }}>
-          <div className="relative aspect-[4/5] rounded-[2rem] overflow-hidden shadow-[0_30px_80px_-20px_rgba(0,0,0,0.6)] ring-1 ring-white/10">
+          <div className="relative aspect-[4/5] rounded-[2rem] overflow-hidden shadow-[0_30px_80px_-20px_hsl(var(--purple)/0.5)] ring-1 ring-purple-bright/30">
             <img src={drHero} alt="Dr. Jayesh Sharma, Surgical Oncologist" className="w-full h-full object-cover" width={1024} height={1280} />
-            <div className="absolute inset-0 bg-gradient-to-t from-ink/60 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-purple/40 via-transparent to-transparent" />
           </div>
-          <div className="absolute -top-4 -right-4 md:-right-8 bg-white text-foreground rounded-2xl px-4 py-3 shadow-lift flex items-center gap-2 max-w-[230px]">
-            <Users className="w-4 h-4 text-gold" />
+          <div className="absolute -top-4 -right-4 md:-right-8 bg-white text-foreground rounded-2xl px-4 py-3 shadow-lift flex items-center gap-2 max-w-[230px] border-l-4 border-purple">
+            <Users className="w-4 h-4 text-purple" />
             <span className="text-xs font-medium leading-tight">Trusted by families across Chhattisgarh</span>
           </div>
           <div className="absolute -bottom-4 -right-2 md:right-6 bg-gold text-ink rounded-full px-5 py-2.5 text-xs font-semibold shadow-gold uppercase tracking-wider">
@@ -208,7 +210,7 @@ export function Credentials() {
           <ol className="mt-8 space-y-7 relative border-l border-border pl-8">
             {timeline.map((t, i) => (
               <li key={i} className="relative">
-                <span className="absolute -left-[37px] top-1 w-3.5 h-3.5 rounded-full bg-gold ring-4 ring-background" />
+                <span className="absolute -left-[37px] top-1 w-3.5 h-3.5 rounded-full bg-gold ring-4 ring-purple/30" />
                 <div className="text-xs uppercase tracking-widest text-gold font-medium">{t.y}</div>
                 <div className="font-serif text-lg mt-1">{t.t}</div>
                 <div className="text-sm text-foreground/65 mt-0.5">{t.s}</div>
@@ -261,9 +263,9 @@ export function Services() {
         <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {items.map((it, i) => (
             <Reveal key={it.t} delay={i * 70}>
-              <div className="group bg-white border border-border/60 rounded-2xl p-7 shadow-soft hover:shadow-lift hover:-translate-y-1 transition-all duration-500 h-full">
-                <div className="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center group-hover:bg-gold/20 transition-colors">
-                  <it.icon className="w-6 h-6 text-gold" />
+              <div className="group bg-white border border-border/60 rounded-2xl p-7 shadow-soft hover:shadow-lift hover:-translate-y-1 hover:border-purple/40 transition-all duration-500 h-full">
+                <div className="w-12 h-12 rounded-xl bg-purple/10 flex items-center justify-center group-hover:bg-purple/20 transition-colors">
+                  <it.icon className="w-6 h-6 text-purple" />
                 </div>
                 <h3 className="mt-5 text-xl font-serif">{it.t}</h3>
                 <p className="mt-2 text-foreground/65 leading-relaxed text-sm">{it.d}</p>
@@ -417,7 +419,10 @@ export function Footer() {
         </Reveal>
 
         <div className="mt-20 pt-10 border-t border-white/10 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-          <div className="font-serif text-gold text-lg">Dr. Jayesh Sharma <span className="text-white/60 text-sm font-sans font-light">· Cancer Care</span></div>
+          <div className="flex items-center gap-3">
+            <img src={logo} alt="Dr. Jayesh Sharma" className="w-10 h-10 rounded-full object-cover ring-1 ring-purple-bright/40" />
+            <div className="font-serif text-gold text-lg">Dr. Jayesh Sharma <span className="text-white/60 text-sm font-sans font-light">· Cancer Care</span></div>
+          </div>
           <nav className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-white/70">
             <a href="#about" className="hover:text-gold">About</a>
             <a href="#services" className="hover:text-gold">Services</a>
