@@ -80,10 +80,10 @@
 @layer components {
   .gold-divider {
     @apply mx-auto h-px w-24;
-    background: linear-gradient(90deg, transparent, hsl(var(--gold)), transparent);
+    background: linear-gradient(90deg, transparent, #7B509A, transparent);
   }
   .section-label {
-    @apply text-xs font-medium uppercase tracking-[0.25em] text-[hsl(var(--gold))];
+    @apply text-xs font-medium uppercase tracking-[0.25em] text-[#7B509A];
   }
   .ink-bg {
     background: var(--gradient-ink);

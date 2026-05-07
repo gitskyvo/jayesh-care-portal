@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import { Menu, X, MessageCircle } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import { WhatsAppIcon } from "./WhatsAppIcon";
 import { cn } from "@/lib/utils";
-import logo from "@/assets/logo.webp";
+import logo from "@/assets/drjayes.png";
 
 const links = [
   { href: "#about", label: "About" },
@@ -11,7 +12,7 @@ const links = [
   { href: "#locations", label: "OPD Locations" },
 ];
 
-export const WHATSAPP_URL = "https://wa.me/91XXXXXXXXXX";
+export const WHATSAPP_URL = "https://wa.me/916261100991";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -35,15 +36,15 @@ export default function Navbar() {
     >
       <nav className="container flex items-center justify-between h-20">
         <a href="#top" className="flex items-center gap-3 group">
-          <img src={logo} alt="Dr. Jayesh Sharma logo" className="w-10 h-10 md:w-11 md:h-11 rounded-full object-cover ring-1 ring-purple-bright/40 shadow-[0_4px_20px_-6px_hsl(var(--purple)/0.6)]" />
-          <span className="font-serif text-lg md:text-xl text-gold tracking-tight">
+          <img src={logo} alt="Dr. Jayesh Sharma logo" className="w-auto h-12" />
+          <span className="font-serif text-lg md:text-xl text-[#7B509A] tracking-tight hidden md:block">
             Dr. Jayesh Sharma <span className="text-white/70 font-sans text-sm font-light">· Cancer Care</span>
           </span>
         </a>
 
         <div className="hidden lg:flex items-center gap-8">
           {links.map(l => (
-            <a key={l.href} href={l.href} className="text-sm text-white/80 hover:text-gold transition-colors">
+            <a key={l.href} href={l.href} className="text-sm text-white/80 hover:text-[#7B509A] transition-colors">
               {l.label}
             </a>
           ))}
@@ -52,14 +53,14 @@ export default function Navbar() {
             target="_blank" rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-whatsapp hover:bg-whatsapp/90 text-white px-5 py-2.5 rounded-full text-sm font-medium transition-all shadow-[0_8px_24px_-8px_hsl(var(--whatsapp)/0.6)]"
           >
-            <MessageCircle className="w-4 h-4" /> WhatsApp
+            <WhatsAppIcon className="w-4 h-4" /> WhatsApp
           </a>
         </div>
 
         <div className="flex lg:hidden items-center gap-3">
           <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer"
             className="w-10 h-10 rounded-full bg-whatsapp flex items-center justify-center">
-            <MessageCircle className="w-5 h-5 text-white" />
+            <WhatsAppIcon className="w-5 h-5 text-white" />
           </a>
           <button onClick={() => setOpen(o => !o)} className="text-white p-2" aria-label="Menu">
             {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -72,7 +73,7 @@ export default function Navbar() {
           <div className="container py-6 flex flex-col gap-4">
             {links.map(l => (
               <a key={l.href} href={l.href} onClick={() => setOpen(false)}
-                className="text-white/85 hover:text-gold py-2 border-b border-white/5">
+                className="text-white/85 hover:text-[#7B509A] py-2 border-b border-white/5">
                 {l.label}
               </a>
             ))}
