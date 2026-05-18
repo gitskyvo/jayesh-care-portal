@@ -110,33 +110,66 @@ export function About() {
   ];
   return (
     <section id="about" className="bg-background py-24">
-      <div className="container grid lg:grid-cols-12 gap-10 items-start">
-        <Reveal className="lg:col-span-3">
-          <div className="aspect-[4/5] rounded-[1.75rem] overflow-hidden shadow-soft">
-            <img src={drAbout} alt="Dr. Jayesh Sharma" loading="lazy" width={1024} height={1280} className="w-full h-full object-cover" />
-          </div>
-        </Reveal>
+      <div className="container space-y-14">
 
-        <Reveal className="lg:col-span-5" delay={120}>
-          <span className="section-label">About Dr. Sharma</span>
-          <h2 className="mt-4 text-4xl md:text-5xl leading-tight">A surgeon who speaks <em className="text-[#7B509A]">your language.</em></h2>
-          <div className="gold-divider my-6 mx-0" />
-          <p className="text-foreground/75 text-lg leading-relaxed font-light">
-            Dr. Jayesh Sharma is a Cancer Surgeon at <strong className="font-medium text-foreground">ITSA Hospital, Vidhan Sabha Road, opposite Ambuja Mall, Raipur</strong>. With <strong className="font-medium text-foreground">25+ years of experience in Surgical Oncology</strong>, he is an expert in oral, breast, and abdominal cancers, with a special focus on complex cases.
-          </p>
-          <p className="mt-4 text-foreground/75 text-lg leading-relaxed font-light">
-            His approach combines modern surgical and medical treatment with lifestyle and dietary guidance — helping patients recover well and live healthier lives after cancer. Dr. Sharma sees patients in person in Raipur and consults online with patients across India and globally.
-          </p>
-          <blockquote className="mt-6 border-l-2 border-[#7B509A] pl-5 italic text-foreground/80 leading-relaxed">
-            "Cancer ka diagnosis sunna ek alag hi duniya mein dhakka deta hai. Mera kaam wahan se shuru hota hai — operation theatre se pehle, us conversation mein. Agar aap ya aapka koi priya iss raaste par hai, main yahan hoon. Aap bhool bhi jaoge ki aapko kabhi cancer hua tha, but jab zaroorat ho hum saath rahenge."
-            <footer className="mt-2 not-italic text-xs uppercase tracking-widest text-[#7B509A]">— Dr. Jayesh Sharma</footer>
-          </blockquote>
-          <div className="mt-8 flex flex-wrap gap-2.5">
+        {/* Row 1 — Photo + Heading & Bio */}
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+          <Reveal className="lg:col-span-4">
+            <div className="aspect-[4/5] rounded-[1.75rem] overflow-hidden shadow-soft">
+              <img src={drAbout} alt="Dr. Jayesh Sharma" loading="lazy" width={1024} height={1280} className="w-full h-full object-cover" />
+            </div>
+          </Reveal>
+
+          <Reveal className="lg:col-span-8" delay={120}>
+            <span className="section-label">About Dr. Sharma</span>
+            <h2 className="mt-4 text-4xl md:text-5xl leading-tight">A surgeon who speaks <em className="text-[#7B509A]">your language.</em></h2>
+            <div className="gold-divider my-6 mx-0" />
+            <div className="grid md:grid-cols-2 gap-x-8 gap-y-4">
+              <p className="text-foreground/75 text-lg leading-relaxed font-light">
+                Dr. Jayesh Sharma is a Cancer Surgeon at <strong className="font-medium text-foreground">ITSA Hospital, Vidhan Sabha Road, opposite Ambuja Mall, Raipur</strong>. With <strong className="font-medium text-foreground">25+ years of experience in Surgical Oncology</strong>, he is an expert in oral, breast, and abdominal cancers, with a special focus on complex cases.
+              </p>
+              <p className="text-foreground/75 text-lg leading-relaxed font-light">
+                His approach combines modern surgical and medical treatment with lifestyle and dietary guidance — helping patients recover well and live healthier lives after cancer. Dr. Sharma sees patients in person in Raipur and consults online with patients across India and globally.
+              </p>
+            </div>
+          </Reveal>
+        </div>
+
+        {/* Row 2 — Blockquote + Services Card */}
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-10 items-stretch">
+          <Reveal delay={200}>
+            <div className="bg-white border border-border/60 rounded-[1.75rem] p-8 lg:p-10 shadow-soft h-full flex flex-col justify-between">
+              <blockquote className="border-l-2 border-[#7B509A] pl-6 italic text-foreground/80 leading-relaxed text-lg">
+                "Cancer ka diagnosis sunna ek alag hi duniya mein dhakka deta hai. Mera kaam wahan se shuru hota hai — operation theatre se pehle, us conversation mein. Agar aap ya aapka koi priya iss raaste par hai, main yahan hoon. Aap bhool bhi jaoge ki aapko kabhi cancer hua tha, but jab zaroorat ho hum saath rahenge."
+              </blockquote>
+              <footer className="mt-6 not-italic text-xs uppercase tracking-widest text-[#7B509A] font-medium pl-6">— Dr. Jayesh Sharma</footer>
+            </div>
+          </Reveal>
+
+          <Reveal delay={280}>
+            <div className="ink-bg text-white rounded-[1.75rem] p-8 lg:p-10 shadow-lift relative overflow-hidden h-full">
+              <div className="absolute inset-0 lotus-bg pointer-events-none" />
+              <h3 className="relative text-2xl text-[#7B509A] font-serif">Expert care, close to home.</h3>
+              <div className="relative mt-8 grid grid-cols-2 sm:grid-cols-3 gap-x-6 gap-y-7">
+                {services.map(s => (
+                  <div key={s.label} className="flex flex-col gap-2">
+                    <s.icon className="w-5 h-5 text-[#7B509A]" />
+                    <span className="text-sm text-white/85 leading-snug">{s.label}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </Reveal>
+        </div>
+
+        {/* Row 3 — Specialty Tags */}
+        <Reveal delay={350}>
+          <div className="flex flex-wrap gap-2.5 justify-center">
             {tags.map(t => {
               const colonIndex = t.indexOf(":");
               if (colonIndex === -1) {
                 return (
-                  <span key={t} className="border border-border bg-white/60 px-4 py-1.5 rounded-full text-xs font-medium text-foreground/80">
+                  <span key={t} className="border border-border bg-white/60 px-4 py-2 rounded-full text-sm font-medium text-foreground/80">
                     {t}
                   </span>
                 );
@@ -144,26 +177,11 @@ export function About() {
               const title = t.slice(0, colonIndex);
               const desc = t.slice(colonIndex + 1);
               return (
-                <span key={t} className="border border-border bg-white/60 px-4 py-1.5 rounded-full text-xs font-medium text-foreground/80">
+                <span key={t} className="border border-border bg-white/60 px-4 py-2 rounded-full text-sm font-medium text-foreground/80">
                   <span className="text-[#7B509A] font-semibold">{title}:</span>{desc}
                 </span>
               );
             })}
-          </div>
-        </Reveal>
-
-        <Reveal className="lg:col-span-4" delay={240}>
-          <div className="ink-bg text-white rounded-[1.75rem] p-8 lg:p-9 shadow-lift relative overflow-hidden">
-            <div className="absolute inset-0 lotus-bg pointer-events-none" />
-            <h3 className="relative text-2xl text-[#7B509A] font-serif">Expert care, close to home.</h3>
-            <div className="relative mt-6 grid grid-cols-2 gap-x-4 gap-y-6">
-              {services.map(s => (
-                <div key={s.label} className="flex flex-col gap-2">
-                  <s.icon className="w-5 h-5 text-[#7B509A]" />
-                  <span className="text-sm text-white/85 leading-snug">{s.label}</span>
-                </div>
-              ))}
-            </div>
           </div>
         </Reveal>
       </div>
@@ -319,7 +337,7 @@ export function Locations() {
         </Reveal>
         <div className="mt-12 max-w-xl mx-auto">
           <Reveal>
-            <div className="bg-white/5 border border-white/10 rounded-2xl p-8 backdrop-blur-sm">
+            <div className="bg-white/5 border border-white/10 rounded-2xl p-8 backdrop-blur-sm flex flex-col items-center">
               <MapPin className="w-8 h-8 text-[#7B509A]" />
               <h3 className="mt-4 text-2xl font-serif">Raipur</h3>
               <div className="mt-2 text-white/90 font-medium">ITSA Hospital</div>
