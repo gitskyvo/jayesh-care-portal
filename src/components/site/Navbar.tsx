@@ -9,7 +9,9 @@ const links = [
   { href: "#services", label: "Services" },
   { href: "#second-opinion", label: "Second Opinion" },
   { href: "#education", label: "Education" },
-  { href: "#locations", label: "OPD Locations" },
+  { href: "#faq", label: "FAQ" },
+  { href: "#locations", label: "Visit" },
+  { href: "#contact", label: "Contact" },
 ];
 
 export const WHATSAPP_URL = "https://wa.me/916261100991";
