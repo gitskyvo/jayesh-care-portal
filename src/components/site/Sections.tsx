@@ -35,12 +35,15 @@ export function Hero() {
               <Calendar className="w-5 h-5" /> Book an Appointment
             </a>
           </div>
+          <p className="mt-3 text-xs text-[#B79AC9]/80 tracking-wide">
+            Same-day reply · Max 24 hours
+          </p>
 
           <div className="mt-14 grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-2xl">
             {[
               { icon: Award, top: "25+ years", sub: "Experience" },
               { icon: Shield, top: "Surgical Oncology", sub: "Speciality Focus" },
-              { icon: MapPin, top: "Raipur · Bilaspur · Korba", sub: "Serving Chhattisgarh" },
+              { icon: MapPin, top: "Raipur", sub: "Serving Chhattisgarh" },
             ].map((s, i) => (
               <div key={i} className="flex items-start gap-3">
                 <s.icon className="w-5 h-5 text-[#7B509A] mt-1 shrink-0" />
@@ -119,8 +122,15 @@ export function About() {
           <h2 className="mt-4 text-4xl md:text-5xl leading-tight">A surgeon who speaks <em className="text-[#7B509A]">your language.</em></h2>
           <div className="gold-divider my-6 mx-0" />
           <p className="text-foreground/75 text-lg leading-relaxed font-light">
-            Dr. Jayesh Sharma is a Surgical Oncologist with over two decades of experience in the diagnosis and treatment of complex cancers. He believes every patient deserves honest answers, clear options and care that respects their dignity and choices.
+            Dr. Jayesh Sharma is a Cancer Surgeon at <strong className="font-medium text-foreground">ITSA Hospital, Vidhan Sabha Road, opposite Ambuja Mall, Raipur</strong>. With <strong className="font-medium text-foreground">25+ years of experience in Surgical Oncology</strong>, he is an expert in oral, breast, and abdominal cancers, with a special focus on complex cases.
           </p>
+          <p className="mt-4 text-foreground/75 text-lg leading-relaxed font-light">
+            His approach combines modern surgical and medical treatment with lifestyle and dietary guidance — helping patients recover well and live healthier lives after cancer. Dr. Sharma sees patients in person in Raipur and consults online with patients across India and globally.
+          </p>
+          <blockquote className="mt-6 border-l-2 border-[#7B509A] pl-5 italic text-foreground/80 leading-relaxed">
+            "Cancer ka diagnosis sunna ek alag hi duniya mein dhakka deta hai. Mera kaam wahan se shuru hota hai — operation theatre se pehle, us conversation mein. Agar aap ya aapka koi priya iss raaste par hai, main yahan hoon. Aap bhool bhi jaoge ki aapko kabhi cancer hua tha, but jab zaroorat ho hum saath rahenge."
+            <footer className="mt-2 not-italic text-xs uppercase tracking-widest text-[#7B509A]">— Dr. Jayesh Sharma</footer>
+          </blockquote>
           <div className="mt-8 flex flex-wrap gap-2.5">
             {tags.map(t => {
               const colonIndex = t.indexOf(":");
@@ -296,37 +306,32 @@ export function Services() {
 
 /* ---------- LOCATIONS ---------- */
 export function Locations() {
-  const locs = [
-    { city: "Raipur", name: "Tiara Building", addr: "Shankar Nagar, Khamardih, Anupam Nagar" },
-    { city: "Bilaspur", name: "OPD Clinic", addr: "Address details on request" },
-    { city: "Korba", name: "OPD Clinic", addr: "Address details on request" },
-  ];
   return (
     <section id="locations" className="ink-bg text-white py-24 relative overflow-hidden">
       <div className="absolute inset-0 lotus-bg pointer-events-none" />
       <div className="container relative">
         <Reveal>
           <div className="text-center max-w-2xl mx-auto">
-            <span className="section-label">OPD Locations</span>
-            <h2 className="mt-4 text-4xl md:text-5xl">Serving patients across <em className="text-[#7B509A]">Chhattisgarh</em></h2>
+            <span className="section-label">Visit Dr. Sharma</span>
+            <h2 className="mt-4 text-4xl md:text-5xl">Where to <em className="text-[#7B509A]">find us.</em></h2>
             <div className="gold-divider my-7" />
           </div>
         </Reveal>
-        <div className="mt-14 grid md:grid-cols-3 gap-6">
-          {locs.map((l, i) => (
-            <Reveal key={l.city} delay={i * 100}>
-              <div className="bg-white/5 border border-white/10 rounded-2xl p-7 backdrop-blur-sm hover:bg-white/[0.07] transition-colors h-full flex flex-col">
-                <MapPin className="w-7 h-7 text-[#7B509A]" />
-                <h3 className="mt-4 text-2xl font-serif">{l.city}</h3>
-                <div className="mt-2 text-white/85 font-medium">{l.name}</div>
-                <p className="text-white/60 text-sm mt-1 leading-relaxed flex-1">{l.addr}</p>
-                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer"
-                  className="mt-6 inline-flex items-center justify-center gap-2 border border-white/40 hover:border-gold hover:text-[#7B509A] text-white px-5 py-2.5 rounded-full text-sm transition-colors">
-                  Book Appointment
-                </a>
-              </div>
-            </Reveal>
-          ))}
+        <div className="mt-12 max-w-xl mx-auto">
+          <Reveal>
+            <div className="bg-white/5 border border-white/10 rounded-2xl p-8 backdrop-blur-sm">
+              <MapPin className="w-8 h-8 text-[#7B509A]" />
+              <h3 className="mt-4 text-2xl font-serif">Raipur</h3>
+              <div className="mt-2 text-white/90 font-medium">ITSA Hospital</div>
+              <p className="text-white/65 text-sm mt-1 leading-relaxed">
+                Vidhan Sabha Road, opposite Ambuja Mall, Raipur, Chhattisgarh
+              </p>
+              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer"
+                className="mt-6 inline-flex items-center justify-center gap-2 border border-white/40 hover:border-gold hover:text-[#7B509A] text-white px-5 py-2.5 rounded-full text-sm transition-colors">
+                Book Appointment
+              </a>
+            </div>
+          </Reveal>
         </div>
       </div>
     </section>
@@ -506,8 +511,9 @@ export function Footer() {
             <a href="#about" className="hover:text-[#7B509A]">About</a>
             <a href="#services" className="hover:text-[#7B509A]">Services</a>
             <a href="#second-opinion" className="hover:text-[#7B509A]">Second Opinion</a>
-            <a href="#locations" className="hover:text-[#7B509A]">OPD Locations</a>
-            <a href="#education" className="hover:text-[#7B509A]">Education</a>
+            <a href="#faq" className="hover:text-[#7B509A]">FAQ</a>
+            <a href="#locations" className="hover:text-[#7B509A]">Visit</a>
+            <a href="#contact" className="hover:text-[#7B509A]">Contact</a>
             <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="hover:text-[#7B509A]">WhatsApp</a>
           </nav>
         </div>
