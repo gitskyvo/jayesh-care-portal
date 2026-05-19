@@ -59,8 +59,8 @@ const faqs = [
 
 export default function Faq() {
   return (
-    <section id="faq" className="bg-background py-24">
-      <div className="container max-w-4xl">
+    <section id="faq" className="bg-background pb-24 pt-5">
+      <div className="container">
         <Reveal>
           <div className="text-center">
             <span className="section-label">FAQ</span>
@@ -69,10 +69,10 @@ export default function Faq() {
           </div>
         </Reveal>
 
-        <div className="mt-12 space-y-8">
+        <div className="mt-12 grid lg:grid-cols-2 gap-x-12 gap-y-0">
           {faqs.map((f, i) => (
             <Reveal key={i} delay={i * 30}>
-              <article className="border-b border-border/60 pb-7">
+              <article className="border-b border-border/60 py-7 first:pt-0">
                 <h3 className="font-serif text-xl md:text-2xl text-foreground leading-snug">
                   {f.q}
                 </h3>

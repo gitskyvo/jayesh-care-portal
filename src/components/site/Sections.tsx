@@ -128,7 +128,7 @@ export function About() {
               <p className="text-foreground/75 text-lg leading-relaxed font-light">
                 Dr. Jayesh Sharma is a Cancer Surgeon at <strong className="font-medium text-foreground">ITSA Hospital, Vidhan Sabha Road, opposite Ambuja Mall, Raipur</strong>. With <strong className="font-medium text-foreground">25+ years of experience in Surgical Oncology</strong>, he is an expert in oral, breast, and abdominal cancers, with a special focus on complex cases.
               </p>
-              <p className="text-foreground/75 text-lg leading-relaxed font-light">
+              <p className="text-foreground/75 text-lg leading-relaxed font-light mt-[-5px]">
                 His approach combines modern surgical and medical treatment with lifestyle and dietary guidance — helping patients recover well and live healthier lives after cancer. Dr. Sharma sees patients in person in Raipur and consults online with patients across India and globally.
               </p>
             </div>
@@ -245,7 +245,7 @@ export function Credentials() {
     "Leading cancer surgeon of Central India",
   ];
   return (
-    <section id="education" className="bg-background py-24">
+    <section id="education" className="bg-background pb-24 pt-5">
       <div className="container grid lg:grid-cols-2 gap-12 lg:gap-20">
         <Reveal>
           <span className="section-label">Credentials & Education</span>
@@ -360,11 +360,11 @@ export function Locations() {
 export function Insights() {
   const videos = [
     { title: "Breast Cancer Treatment", url: "https://www.youtube.com/embed/oWWAyfg5mW0" },
-    { title: "Cancer Symptoms", url: "https://www.youtube.com/embed/i6FielQm000" },
+    { title: "Cancer Symptoms", url: "https://www.youtube.com/embed/i6FielQm00o" },
     { title: "Why Cancer Is Rising", url: "https://www.youtube.com/embed/hOkwZG9FnOo" },
     { title: "Lifestyle After Cancer", url: "https://www.youtube.com/embed/YESRTB7BYjo" },
     { title: "All About Breast Cancer", url: "https://www.youtube.com/embed/videoseries?list=PLoSjkfVBLSATrgFh6WrvX6cLWWfKKg7BR" },
-    { title: "All About Oral Cancers", url: "https://www.youtube.com/embed/videoseries?list=PLoSjkfVBLSASJIhUlw58Bx75yVVUCEAQ2" },
+    { title: "All About Oral Cancers", url: "https://www.youtube.com/embed/_ckXtsvQ9yw" },
   ];
   return (
     <section className="bg-background py-24">
@@ -451,7 +451,7 @@ export function Testimonials() {
   ];
 
   return (
-    <section className="bg-background py-24">
+    <section className="bg-background pb-24 pt-5">
       <div className="container relative">
         <Reveal>
           <div className="text-center max-w-2xl mx-auto">
