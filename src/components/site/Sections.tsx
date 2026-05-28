@@ -31,7 +31,7 @@ export function Hero() {
               className="inline-flex items-center justify-center gap-2 bg-whatsapp hover:bg-whatsapp/90 text-white px-7 py-4 rounded-full font-medium transition-all shadow-[0_14px_40px_-10px_hsl(var(--whatsapp)/0.6)] hover:translate-y-[-2px]">
               <WhatsAppIcon className="w-5 h-5" /> Chat on WhatsApp
             </a>
-            <a href={BOOK_URL} className="inline-flex items-center justify-center gap-2 border border-white/40 hover:border-gold hover:text-[#7B509A] text-white px-7 py-4 rounded-full font-medium transition-all">
+            <a href="#contact" className="inline-flex items-center justify-center gap-2 border border-white/40 hover:border-gold hover:text-[#7B509A] text-white px-7 py-4 rounded-full font-medium transition-all">
               <Calendar className="w-5 h-5" /> Book an Appointment
             </a>
           </div>
@@ -338,12 +338,14 @@ export function Locations() {
         <div className="mt-12 max-w-xl mx-auto">
           <Reveal>
             <div className="bg-white/5 border border-white/10 rounded-2xl p-8 backdrop-blur-sm flex flex-col items-center">
-              <MapPin className="w-8 h-8 text-[#7B509A]" />
-              <h3 className="mt-4 text-2xl font-serif">Raipur</h3>
-              <div className="mt-2 text-white/90 font-medium">ITSA Hospital</div>
-              <p className="text-white/65 text-sm mt-1 leading-relaxed">
-                Vidhan Sabha Road, opposite Ambuja Mall, Raipur, Chhattisgarh
-              </p>
+              <a href="https://g.co/kgs/4DFwe5" target="_blank" rel="noopener noreferrer" className="group/loc block text-center">
+                <MapPin className="w-8 h-8 text-[#7B509A] mx-auto" />
+                <h3 className="mt-4 text-2xl font-serif group-hover/loc:text-[#7B509A] transition-colors">Raipur</h3>
+                <div className="mt-2 text-white/90 font-medium group-hover/loc:text-[#7B509A] transition-colors">ITSA Hospital</div>
+                <p className="text-white/65 text-sm mt-1 leading-relaxed group-hover/loc:text-white/80 transition-colors">
+                  Vidhan Sabha Road, opposite Ambuja Mall, Raipur, Chhattisgarh
+                </p>
+              </a>
               <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer"
                 className="mt-6 inline-flex items-center justify-center gap-2 border border-white/40 hover:border-gold hover:text-[#7B509A] text-white px-5 py-2.5 rounded-full text-sm transition-colors">
                 Book Appointment

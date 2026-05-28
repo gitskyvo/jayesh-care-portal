@@ -1,19 +1,14 @@
 import { useState, useRef } from "react";
-import emailjs from "@emailjs/browser";
 import Reveal from "./Reveal";
 import { Send, CheckCircle2, AlertCircle } from "lucide-react";
 
 // ──────────────────────────────────────────────
-// EmailJS credentials — update these after setup
-// 1. Sign up free at https://www.emailjs.com
-// 2. Create an Email Service (Gmail, Outlook, etc.)
-// 3. Create an Email Template with variables:
-//    {{from_name}}, {{phone}}, {{city}}, {{message}}, {{preferred_contact}}
-// 4. Copy your Public Key from Account → General
+// Web3Forms — update with your access key
+// 1. Go to https://web3forms.com and enter your email
+// 2. You'll receive an access key in your inbox
+// 3. Paste it below
 // ──────────────────────────────────────────────
-const EMAILJS_SERVICE_ID = "service_qta3tla";
-const EMAILJS_TEMPLATE_ID = "template_oiurd8m";
-const EMAILJS_PUBLIC_KEY = "u9-yOrBBEUN6hl8GD";
+const WEB3FORMS_ACCESS_KEY = "YOUR_ACCESS_KEY_HERE";
 
 export default function ContactForm() {
   const formRef = useRef<HTMLFormElement>(null);
@@ -29,17 +24,28 @@ export default function ContactForm() {
     setError("");
 
     try {
-      await emailjs.sendForm(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_TEMPLATE_ID,
-        formRef.current,
-        EMAILJS_PUBLIC_KEY
-      );
-      setSubmitted(true);
+      const formData = new FormData(formRef.current);
+      formData.append("access_key", "2f8ab4bf-3fce-4e7b-936e-bf7c16f09ecd");
+      formData.append("subject", "New Callback Request – Dr. Jayesh Sharma Website");
+      formData.append("from_name", "Dr. Jayesh Sharma Website");
+
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setSubmitted(true);
+        formRef.current.reset();
+      } else {
+        throw new Error(data.message || "Submission failed");
+      }
     } catch (err: any) {
-      console.error("EmailJS error:", err);
+      console.error("Web3Forms error:", err);
       setError(
-        err?.text || "Something went wrong. Please try again or contact us directly."
+        err?.message || "Something went wrong. Please try again or contact us directly."
       );
     } finally {
       setSending(false);
@@ -91,6 +97,9 @@ export default function ContactForm() {
                 onSubmit={handleSubmit}
                 className="grid sm:grid-cols-2 gap-5"
               >
+                {/* Web3Forms honeypot for spam protection */}
+                <input type="checkbox" name="botcheck" className="hidden" style={{ display: "none" }} />
+
                 <div className="sm:col-span-1">
                   <label className="text-xs uppercase tracking-wider text-foreground/60 font-medium">
                     Name *
